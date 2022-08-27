@@ -29,10 +29,9 @@ df = pd.read_html(str(table))[0]
 #     if word == 'R#':
 #         pass
 
-# # FNAME LNAME COLUMNS
+# FNAME LNAME COLUMNS
 
-
-# # NOTES COLUMN
+# NOTES COLUMN
 # df.insert(loc = -1, column = 'Notes', value = new_col)
 
 # EXPORT TO CSV
