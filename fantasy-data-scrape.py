@@ -11,36 +11,29 @@ def split_col(tbl, col_name, idx):
     for word in tbl.loc[:, col_name]:
         print(word.split()[idx])
 
-
-# CODE
-
-# setup
+# SETUP
 
 url = "https://fantasy.espn.com/basketball/livedraftresults?leagueId=33775603"
-
-"""
-https://hashtagbasketball.com/fantasy-basketball-projections
-"""
-
+# https://hashtagbasketball.com/fantasy-basketball-projections
 r = req.get(url)
 data = r.content
 
 soup = bs(data, "html.parser")
-
-# make dataframe
 table = soup.find_all('table')[2]
 df = pd.read_html(str(table))[0]
+
+# CLEAN
 
 # # delete extra rows
 # for word in df.loc[:, 'R#']:
 #     if word == 'R#':
 #         pass
 
-# create column for first and last names
+# # FNAME LNAME COLUMNS
 
 
-# # add notes to end
+# # NOTES COLUMN
 # df.insert(loc = -1, column = 'Notes', value = new_col)
 
-# make csv
+# EXPORT TO CSV
 df.to_excel('fantasy_data3.xlsx')
